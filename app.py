@@ -39,10 +39,12 @@ def show_main():
     return render_template('top.html')
 
 
-@app.route('/collect')
-def collect_data():
-    DataCrawling.collect_data()
-    return make_response(jsonify(success=True), 200)
+# TODO - Administrator login page
+# @app.route('/collect')
+# def collect_data():
+#     DataCrawling.collect_data()
+#     return make_response(jsonify(success=True), 200)
+
 
 @app.errorhandler(404)
 def page_not_found(error):

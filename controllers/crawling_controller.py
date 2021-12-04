@@ -59,8 +59,10 @@ class DataCrawling:
                     furigana_word = ('').join(furigana_full)
                     kanji_word = ('').join(kanji_full)
                     
+                    level = int(re.search('-N(.+?)-', detail_url).group(1))
+                    
                     word_list.append({
-                        'level': 5 - i,
+                        'level': level,
                         'furigana': furigana_word,
                         'kanji': kanji_word
                     })
