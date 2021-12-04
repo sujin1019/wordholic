@@ -385,6 +385,12 @@ ul li img:active {
     cursor: grabbing; /* IE에서는 미지원 */
 }
 
+/* ------------------------------------------------------------*/
+/* Quiz Page */
+.inner-quiz {
+    margin-top: 60px;
+}
+
 @media only screen and (min-width: 1200px) {
     .inner {
         max-width: 1200px;
