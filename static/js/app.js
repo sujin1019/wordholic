@@ -197,3 +197,26 @@ for (let i = 0; i < classImgLists.length; i++) {
     classImgLists[i].addEventListener('mousedown', processTouchStart); // PC
     classImgLists[i].addEventListener('touchstart', processTouchStart); // Mobile
 }
+
+/* ----------------------------------------------- */
+
+// Vue JS
+const app = new Vue({
+    el: "#app",
+    data: {
+        selected: ''
+    },
+    methods: {
+        getQuizList: () => {
+            axios("http://localhost:8081/quiz/kanji/" + document.getElementById("level"), {
+                method: "get",
+            })
+            .then((response) => {
+                console.log(response.data["status"]);
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+        }
+    }
+});

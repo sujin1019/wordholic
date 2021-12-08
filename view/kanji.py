@@ -8,4 +8,4 @@ kanjiquiz = Blueprint('kanjiquiz', __name__)
 def show_kanji(level):
     kanji_list = Kanji.get_kanji_list(level, 10)
 
-    return render_template('kanji_quiz.html', kanji_list=kanji_list)
+    return render_template('kanji_quiz.html', level=level, kanji_list=kanji_list)

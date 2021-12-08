@@ -2,23 +2,29 @@
 
 {% block content %}
 <section class="main-quiz">
-    <div class="inner inner-quiz">
-        {{ level }}
-
+    <div class="inner inner-quiz" id="app">
+        <div class="kanji-title"><span class="n-level">JLPT N{{ level }}</span> Kanji Readings</div>
         <!-- Select numbers -->
         <div class="select-num">
             How many words do you want?&nbsp;
-            <select name="kanji-numbers" id="kanji-numbers" class="kanji-select">
+            <select name="kanji-numbers" id="kanji-numbers" v-model="selected" class="kanji-select">
+                <option disabled>Select a number</option>
                 <option value="10">10</option>
                 <option value="20">20</option>
                 <option value="30">30</option>
             </select>
-        </div>
-        <div class="quiz">
-            {% for kanji in kanji_list %}
-                {{ kanji[2] }} <input type="text" name={{ loop.index }}><br>
-            {% endfor %}
+
+            <ul class="quiz">
+                {% for kanji in kanji_list %}
+                <li>
+                    <div class="kanji-word">{{ kanji[2] }}</div>
+                    <input class="kanji-answer" type="text" name={{ loop.index }}>
+                    <input type="button" name="hint" class="btn-hint" value="hint"/>
+                </li>    
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </section>
+
 {% endblock %}

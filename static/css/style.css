@@ -33,6 +33,10 @@ a:hover {
     color: #3f464d;
 }
 
+li {
+    list-style: none;
+}
+
 /* header */
 header {
     width: 100%;
@@ -320,7 +324,7 @@ footer {
     border-top: 1px solid #e4e4e4;
     background-color: #f8f9fa;
     padding: 1rem 0;
-    margin: 1rem 0;
+    margin: 1rem 0 0;
 }
 
 .footer-message {
@@ -388,8 +392,58 @@ ul li img:active {
 /* ------------------------------------------------------------*/
 /* Quiz Page */
 .inner-quiz {
-    margin-top: 60px;
+    text-align: center;
+}
+
+.kanji-title {
+    margin: 60px 0 1rem;
     border-top: 1px solid #e4e4e4;
+    padding-top: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #545e6f;
+    /*margin: 0.3rem 0 1rem;*/
+}
+
+.n-level {
+    color: #ff553e;;
+}
+
+.quiz {
+    margin-top: 2rem;
+}
+
+.kanji-word {
+    width: 16%;
+    height: 2.2rem;
+    font-size: 1.2rem;
+    display: inline-block;
+}
+
+.kanji-answer {
+    border: 0;
+    border-radius: 10px;
+    width: 25%;
+    height: 2.2rem;
+    font-size: 1.2rem;
+    background-color: rgb(228, 241, 252);
+    outline: none;
+    padding-left: 10px;
+    margin: 0.3rem 0;
+}
+
+.btn-hint:hover {
+    transition: transform 0.5s;
+    transform: translateY(-2px);
+    color: #2186c4;
+}
+
+.btn-hint {
+    border-radius: 10px;
+    width: 5%;
+    height: 2.2rem;
+    border: 0;
+    margin-left: 0.5rem;
 }
 
 @media only screen and (min-width: 1200px) {

@@ -23,3 +23,4 @@ class Kanji:
             result_li.append([n_level, furigana, kanji])
 
         return result_li
+    
