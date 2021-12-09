@@ -13,16 +13,28 @@
                 <option value="20">20</option>
                 <option value="30">30</option>
             </select>
+            <button type="button" v-on:click="reloadPage" class="btn-new-word"/>
+                <span class="material-icons-outlined">refresh</span>
+            </button>
+        </div>
 
-            <ul class="quiz">
-                {% for kanji in kanji_list %}
-                <li>
-                    <div class="kanji-word">{{ kanji[2] }}</div>
-                    <input class="kanji-answer" type="text" name={{ loop.index }}>
-                    <input type="button" name="hint" class="btn-hint" value="hint"/>
-                </li>    
-                {% endfor %}
-            </ul>
+
+        <ul class="quiz">
+            {% for kanji in kanji_list %}
+            <li class="quiz-li">
+                <div class="kanji-word">{{ kanji[3] }}</div>
+                <input class="kanji-answer" type="search" name={{ loop.index }}>
+                <input type="button" v-on:click="showHint($event)" class="btn-hint" value="hint" data-id="{{ kanji[0] }}"/>
+            </li>    
+            {% endfor %}
+        </ul>
+        <div>
+            <button type="submit" class="btn-kanji-submit">
+                <span class="material-icons-outlined submit-icon">
+                    grading
+                </span>
+                <span class="submit-word">Check the result<span>
+            </button>
         </div>
     </div>
 </section>

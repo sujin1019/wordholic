@@ -204,15 +204,23 @@ for (let i = 0; i < classImgLists.length; i++) {
 const app = new Vue({
     el: "#app",
     data: {
-        selected: ''
+        selected: '',
+        answer: ''
     },
     methods: {
-        getQuizList: () => {
-            axios("http://localhost:8081/quiz/kanji/" + document.getElementById("level"), {
+        reloadPage: () => {
+            window.location.reload();
+        },
+        showHint: (event) => {
+            let target = event.target.getAttribute('data-id')
+            axios("http://localhost:8081/quiz/kanji/hint", {
                 method: "get",
+                params: {
+                    row_id: target
+                } 
             })
             .then((response) => {
-                console.log(response.data["status"]);
+                event.target.previousElementSibling.value = response.data.hint
             })
             .catch((error) => {
                 console.log(error);

@@ -15,6 +15,7 @@ app = Flask(__name__, static_url_path='/static')
 # Blueprints
 app.register_blueprint(quiz.wordquiz, url_prefix='/quiz/words')
 app.register_blueprint(kanji.kanjiquiz, url_prefix='/quiz/kanji')
+app.register_blueprint(kanji.kanjihint, url_prefix='/quiz/kanji/hint')
 
 CORS(app, supports_credentials=True)
 app.secret_key = os.urandom(24)  # varies whenever the server is started

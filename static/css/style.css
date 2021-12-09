@@ -406,11 +406,15 @@ ul li img:active {
 }
 
 .n-level {
-    color: #ff553e;;
+    color: #ff553e;
 }
 
 .quiz {
-    margin-top: 2rem;
+    margin: 2rem 0;
+}
+
+.quiz-li {
+    margin-bottom: 0.5rem;
 }
 
 .kanji-word {
@@ -418,6 +422,11 @@ ul li img:active {
     height: 2.2rem;
     font-size: 1.2rem;
     display: inline-block;
+    background-color: #3AB795;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 2.2rem;
 }
 
 .kanji-answer {
@@ -426,24 +435,80 @@ ul li img:active {
     width: 25%;
     height: 2.2rem;
     font-size: 1.2rem;
-    background-color: rgb(228, 241, 252);
+    background-color: #ECFFF8;
     outline: none;
     padding-left: 10px;
-    margin: 0.3rem 0;
+    margin: 0.3rem 0 0.3rem 0.5rem;
+}
+
+.btn-hint {
+    border-radius: 10px;
+    width: 60px;
+    height: 2.2rem;
+    border: 0;
+    margin-left: 0.5rem;
+    background-color: #0d47a1;
+    color: #ffffff;
 }
 
 .btn-hint:hover {
     transition: transform 0.5s;
     transform: translateY(-2px);
-    color: #2186c4;
+    color: #fff;
+    background-color: #F26157;;
+    cursor: pointer;
 }
 
-.btn-hint {
-    border-radius: 10px;
-    width: 5%;
-    height: 2.2rem;
+.btn-new-word {
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
     border: 0;
     margin-left: 0.5rem;
+    background-color: #143642;
+    color: #ffffff;
+    margin-right: 0.2rem;
+    margin-left: 20px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.btn-new-word:hover {
+    transition: transform 0.5s;
+    transform: translateY(-2px);
+    color: #ffffff;
+    background-color: #0d47a1;
+    cursor: pointer;
+}
+
+.btn-kanji-submit {
+    border-radius: 10px;
+    width: 40%;
+    height: 40px;
+    line-height: 40px;
+    border: 0;
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #F26157;
+    color: #ffffff;
+    vertical-align: center;
+}
+
+.btn-kanji-submit:hover {
+    transition: transform 0.5s;
+    transform: translateY(-2px);
+    color: #ffffff;
+    background-color: #0d47a1;
+    cursor: pointer;
+}
+
+.submit-icon {
+    font-size: 1rem;
+}
+
+.submit-word {
+    height: 30px;
+    line-height: 30px;
 }
 
 @media only screen and (min-width: 1200px) {
