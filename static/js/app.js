@@ -201,69 +201,99 @@ for (let i = 0; i < classImgLists.length; i++) {
 /* ----------------------------------------------- */
 
 // Vue JS
-const app = new Vue({
-    el: "#app",
-    data: {
-        selected: ''
-    },
-    methods: {
-        reloadPage: () => {
-            window.location.reload();
+
+if (document.querySelector('#app') !== null) {
+    const app = new Vue({
+        el: "#app",
+        data: {
+            selected: ''
         },
-        showHint: (event) => {
-            let target = event.target.getAttribute('data-id')
-            axios("http://localhost:8081/quiz/kanji/hint", {
-                method: "get",
-                params: {
-                    row_id: target
-                } 
-            })
-            .then((response) => {
-                event.target.previousElementSibling.value = response.data['hint']['first_word']
+        methods: {
+            reloadPage: () => {
+                window.location.reload();
+            },
+            showHint: (event) => {
+                let target = event.target.getAttribute('data-id')
+                axios("http://localhost:8081/quiz/kanji/hint", {
+                    method: "get",
+                    params: {
+                        row_id: target
+                    } 
+                })
+                .then((response) => {
+                    event.target.previousElementSibling.value = response.data['hint']['first_word']
 
-                let wordLength = response.data['hint']['hint_len']
-                if (wordLength == 1) {
-                    event.target.parentElement.nextElementSibling.innerText = wordLength + " character"
-                } else {
-                    event.target.parentElement.nextElementSibling.innerText = wordLength + " characters"
-                }
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-        },
-        submitKanji: (event) => {
-            let body = {};
-            let answers = document.getElementsByClassName('kanji-answer');
-            let objIds = document.getElementsByClassName('obj-id');
-            
-            for (let i = 0; i < answers.length; i++) {
-                body[i] = [answers[i].value, objIds[i].value];
-            }
-
-            axios({
-                method: "post",
-                url: "http://localhost:8081/quiz/kanji/answer/",
-                data: body,
-                headers: { 'content-type': 'application/json' }
-            })
-            .then((response) => {
-                console.log(response.data)
-                resultList = response.data['result']
-
-                for (let i = 0; i < resultList.length; i++) {
-                    if (resultList[i] == 'o') {
-                        document.getElementById("result" + i).innerHTML = '<span class="material-icons thumb-up">thumb_up</span>';
+                    let wordLength = response.data['hint']['hint_len']
+                    if (wordLength == 1) {
+                        event.target.parentElement.nextElementSibling.innerText = wordLength + " character"
                     } else {
-                        document.getElementById("result" + i).innerHTML = '<span class="material-icons-outlined thumb-down">thumb_down</span>';
+                        event.target.parentElement.nextElementSibling.innerText = wordLength + " characters"
                     }
-                    
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+            },
+            submitKanji: () => {
+                let body = {};
+                let answers = document.getElementsByClassName('quiz-answer');
+                let objIds = document.getElementsByClassName('obj-id');
+                
+                for (let i = 0; i < answers.length; i++) {
+                    body[i] = [answers[i].value, objIds[i].value];
                 }
-            })
-            .catch((error) => {
-                console.log(error)
-            })
 
+                axios({
+                    method: "post",
+                    url: "http://localhost:8081/quiz/kanji/answer/",
+                    data: body,
+                    headers: { 'content-type': 'application/json' }
+                })
+                .then((response) => {
+                    resultList = response.data['result']
+
+                    for (let i = 0; i < resultList.length; i++) {
+                        if (resultList[i] == 'o') {
+                            document.getElementById("result" + i).innerHTML = '<span class="material-icons thumb-up">thumb_up</span>';
+                        } else {
+                            document.getElementById("result" + i).innerHTML = '<span class="material-icons-outlined thumb-down">thumb_down</span>';
+                        }      
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+            },
+            submitVocabs: () => {
+                let body = {};
+                let answers = document.getElementsByClassName('quiz-answer');
+                let objIds = document.getElementsByClassName('obj-id');
+                
+                for (let i = 0; i < answers.length; i++) {
+                    body[i] = [answers[i].value, objIds[i].value];
+                }
+
+                axios({
+                    method: "post",
+                    url: "http://localhost:8081/quiz/vocab/answer/",
+                    data: body,
+                    headers: { 'content-type': 'application/json' }
+                })
+                .then((response) => {
+                    resultList = response.data['result']
+
+                    for (let i = 0; i < resultList.length; i++) {
+                        if (resultList[i] == 'o') {
+                            document.getElementById("result" + i).innerHTML = '<span class="material-icons thumb-up">thumb_up</span>';
+                        } else {
+                            document.getElementById("result" + i).innerHTML = '<span class="material-icons-outlined thumb-down">thumb_down</span>';
+                        }      
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+            }
         }
-    }
-});
+    });
+}

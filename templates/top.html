@@ -65,13 +65,9 @@
                     </div>
                 </div>
                 <ul class="class-list" data-position="0">
-                    {% for idx in range(6) %}
+                    {% for idx in range(5) %}
                         <li class="class-card">
-                            {% if idx != 5 %}
-                                <img src="{{ url_for('static', filename='img/N' + (5 - idx) | string + '.jpeg') }}" alt="" class="class-image">
-                            {% else %}
-                                <img src="{{ url_for('static', filename='img/all.jpeg') }}" alt="" class="class-image">                        
-                            {% endif %}
+                            <img src="{{ url_for('static', filename='img/N' + (5 - idx) | string + '.jpeg') }}" alt="" class="class-image">
 
                             <a href="{{ '/quiz/words/n' + (5 - idx) | string }}">
                                 <div class="class-container">
@@ -80,16 +76,12 @@
                                             {{ total_words[idx] }} words
                                         </div>
                                         <div class="class-format">
-                                            {% if idx != 5 %}
-                                                N{{ 5 - idx }}
-                                            {% else %}
-                                                ALL
-                                            {% endif %}
+                                            N{{ 5 - idx }}
                                         </div>
                                     </div>
                                     <div class="class-desc">
-                                        <div class="class-title">Description Title Description Title</div>
-                                        <div class="class-detail">Description detais</div>
+                                        <div class="class-title">JLPT N{{ 5 - idx }} Vocabs</div>
+                                        <div class="class-detail">Difficulty Level: {{ '★' * (idx + 1) }}</div>
                                     </div>
                                 </div>
                             </a>
@@ -125,8 +117,8 @@
                                         </div>
                                     </div>
                                     <div class="class-desc">
-                                        <div class="class-title">Description Title Description Title</div>
-                                        <div class="class-detail">Description detais</div>
+                                        <div class="class-title">JLPT N{{ 5 - idx }} Kanji Words</div>
+                                        <div class="class-detail">Difficulty Level: {{ '★' * (idx + 1) }}</div>
                                     </div>
                                 </div>
                             </a>

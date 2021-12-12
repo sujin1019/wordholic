@@ -17,7 +17,7 @@
                     <span class="result" id="result{{ loop.index0 }}"></span>
                     <input type="hidden" class="obj-id" value="{{ kanji[0] }}">
                     <div class="kanji-word">{{ kanji[3] }}</div>
-                    <input autocomplete="off" class="kanji-answer" type="search">
+                    <input autocomplete="off" class="quiz-answer" type="search">
                     <input type="button" v-on:click="showHint($event)" class="btn-hint" value="hint" data-id="{{ kanji[0] }}"/>
                 </li>
                 <div class="word-length"></div>   

@@ -9,6 +9,16 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+.not-found-container {
+    margin: 60px 0 1rem;
+    height: 60vh;
+    border-top: 1px solid #e4e4e4;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #545e6f;
+}
+
 a {
     all: unset;
 }
@@ -422,6 +432,18 @@ ul li img:active {
     vertical-align: middle;
 }
 
+.furigana-word {
+    width: 20%;
+    height: 2.2rem;
+    font-size: 1.2rem;
+    display: inline-block;
+    background-color: #3AB795;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 2.2rem;
+}
+
 .kanji-word {
     width: 16%;
     height: 2.2rem;
@@ -434,7 +456,7 @@ ul li img:active {
     line-height: 2.2rem;
 }
 
-.kanji-answer {
+.quiz-answer {
     border: 1px solid rgba(29,192,120,.24);
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
     transition: all .2s ease;
@@ -447,7 +469,7 @@ ul li img:active {
     padding-left: 10px;
     margin: 0.3rem 0 0.3rem 0.5rem;
 }
-.kanji-answer:focus {
+.quiz-answer:focus {
     outline: unset;
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
     border: 1px solid #dedede;
@@ -502,7 +524,8 @@ ul li img:active {
     font-size: 16px;
 }
 
-.btn-kanji-submit {
+.btn-kanji-submit,
+.btn-quiz-submit {
     border-radius: 10px;
     width: 40%;
     height: 40px;
@@ -516,7 +539,8 @@ ul li img:active {
     box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
 }
 
-.btn-kanji-submit:hover {
+.btn-kanji-submit:hover,
+.btn-quiz-submit:hover {
     transition: transform 0.5s;
     transform: translateY(-2px);
     color: #ffffff;
@@ -591,6 +615,12 @@ ul li img:active {
     .inner {
         padding: 0 1rem;
     }
+    .quiz-furigana {
+        width: 33%;
+    }
+    .quiz-kanji {
+        width: 29%;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -627,7 +657,7 @@ ul li img:active {
     .btn-hint {
         width:14%;
     }
-    .btn-kanji-submit {
+    .btn-quiz-submit {
         width: 60%;
     }
     .quiz {
@@ -641,5 +671,19 @@ ul li img:active {
     }
     .inner {
         padding: 0 0.5rem;
+    }
+    .quiz-furigana {
+        width: 46%;
+        font-size: 0.9rem;
+    }
+    .quiz-kanji {
+        width: 34%;
+        font-size: 0.9rem;
+    }
+    .quiz-answer {
+        width: 81%;
+        padding: 0 0 0 2px;
+        margin: 5px 0;
+        font-size: 0.9rem;
     }
 }
