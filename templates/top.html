@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Main Banner -->
+    <section class="main">
+        <div class="main-container">
+            <div class="inner">
+                <div class="title-container">
+                    <div class="title">
+                        Welcome to Word-holic!
+                    </div>
+                    <div class="message">
+                        You're gonna absorb dozens of<br>
+                        categorized words in no time.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--
+    <section>
+        <div class="inner">
+            <div class="skill-container">
+                <div class="skill">
+                    <i class="fab fa-python skill-icon python-style"></i>
+                    <div class="skill-title">
+                        <div class="skill-name">Python</div>
+                        <div class="skill-usage">Terms related to Python</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-js skill-icon js-style"></i>
+                    <div class="skill-title">
+                        <div class="skill-name">Javascript</div>
+                        <div class="skill-usage">Terms related to JS</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-git-square skill-icon git-style"></i>
+                    <div class="skill-title">
+                        <div class="skill-name">git</div>
+                        <div class="skill-usage">Terms related to git</div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-css3 skill-icon css-style"></i>
+                    <div class="skill-title">
+                        <div class="skill-name">CSS</div>
+                        <div class="skill-usage">Terms related to css</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <section>
+        <div class="inner">
+            <div class="roadmap-container">
+                <div class="roadmap-title-container">
+                    <div class="roadmap-title">Random Words <span class="roadmap-desc">(N5 ~ N1)</span></div>
+                    <div class="arrow-container">
+                        <i class="slide-prev fas fa-chevron-circle-left"></i>
+                        <i class="slide-next fas fa-chevron-circle-right"></i>
+                    </div>
+                </div>
+                <ul class="class-list" data-position="0">
+                    {% for idx in range(5) %}
+                        <li class="class-card">
+                            <img src="{{ url_for('static', filename='img/N' + (5 - idx) | string + '.jpeg') }}" alt="" class="class-image">
+
+                            <a href="{{ '/quiz/words/n' + (5 - idx) | string }}">
+                                <div class="class-container">
+                                    <div class="class-skill">
+                                        <div class="class-type">
+                                            {{ total_words[idx] }} words
+                                        </div>
+                                        <div class="class-format">
+                                            N{{ 5 - idx }}
+                                        </div>
+                                    </div>
+                                    <div class="class-desc">
+                                        <div class="class-title">JLPT N{{ 5 - idx }} Vocabs</div>
+                                        <div class="class-detail">Difficulty Level: {{ '★' * (idx + 1) }}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="inner">
+            <div class="roadmap-container">
+                <div class="roadmap-title-container">
+                    <div class="roadmap-title">Kanji Readings</div>
+                    <div class="arrow-container">
+                        <i class="slide-prev fas fa-chevron-circle-left"></i>
+                        <i class="slide-next fas fa-chevron-circle-right"></i>
+                    </div>
+                </div>
+                <ul class="class-list" data-position="0">
+                    {% for idx in range(5) %}
+                        <li class="class-card">
+                            <img src="{{ url_for('static', filename='img/kanji' + (5 - idx) | string + '.jpeg') }}" alt="" class="class-image">                      
+                            <a href="{{ '/quiz/kanji/' + (5 - idx) | string }}">
+                                <div class="class-container">
+                                    <div class="class-skill">
+                                        <div class="class-type">
+                                            {{ kanji_words[idx] }} Kanji Words
+                                        </div>
+                                        <div class="class-format">
+                                            N{{ 5 - idx }}
+                                        </div>
+                                    </div>
+                                    <div class="class-desc">
+                                        <div class="class-title">JLPT N{{ 5 - idx }} Kanji Words</div>
+                                        <div class="class-detail">Difficulty Level: {{ '★' * (idx + 1) }}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>                    
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="main-quiz">
+    <div class="inner inner-quiz" id="app">
+        <div class="kanji-title">
+            <span class="n-level">JLPT N{{ level }}</span> Vocabularies
+            <button type="button" v-on:click="reloadPage" class="btn-new-word"/>
+                <span class="material-icons-outlined refresh">refresh</span>
+            </button>
+        </div>
+        
+        <form v-on:submit.prevent="submitVocabs">
+            <ul class="quiz">
+                {% for word in word_list %}
+                <li class="quiz-li">
+                    <span class="result" id="result{{ loop.index0 }}"></span>
+                    <input type="hidden" class="obj-id" value="{{ word[0] }}">
+                    <div class="furigana-word quiz-furigana">{{ word[2] }}</div>
+                    <div class="kanji-word quiz-kanji">{{ word[3] }}</div>
+                    <input autocomplete="off" class="quiz-answer" type="search">
+                </li>   
+                {% endfor %}
+            </ul>
+            <div>
+                <button type="submit" class="btn-quiz-submit">
+                    <span class="material-icons-outlined submit-icon">
+                        grading
+                    </span>
+                    <span class="submit-word">Check the result<span>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,689 @@
+/* Common */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 auto;
+    color: #3f464d;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.not-found-container {
+    margin: 60px 0 1rem;
+    height: 60vh;
+    border-top: 1px solid #e4e4e4;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #545e6f;
+}
+
+a {
+    all: unset;
+}
+
+a:link {
+    text-decoration: none;
+    color: #3f464d;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #3f464d;
+}
+
+a:active {
+    text-decoration: none;
+    color: #3f464d;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #3f464d;
+}
+
+li {
+    list-style: none;
+}
+
+/* header */
+header {
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.head-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.head-container .head-left {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.head-container .head-left a:hover {
+    color: #2186c4;
+    cursor: pointer;
+}
+
+.head-container .head-right {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.head-container .head-right a:hover {
+    color: #2186c4;
+    cursor: pointer;
+}
+
+.inner {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+    overflow: hidden;
+}
+
+/* Section */
+section {
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.main {
+    height: 360px;
+    background-image: url(../img/main-banner.jpg);
+    background-size: cover;
+    /* background-position: center 10%; */
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.main-container {
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(47, 48, 89);
+    opacity: 0.2; */
+    z-index: 2;
+    margin-top: 60px;
+}
+
+.title-container {
+    padding-top: 250px;
+    padding-bottom: 50px;
+}
+
+.title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 0.8rem;
+}
+
+.message {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 1.5rem;
+}
+
+.skill-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.skill {
+    width: 25%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    border-radius: 9px;
+    padding: 0.5rem 1rem;
+    margin: 0 1rem;
+    box-shadow: 10px 10px 10px -5px rgba(25, 42, 70, 0.2);
+    transition: 0.4s;
+}
+
+.skill:hover {
+    transform: translate(0, -5px);
+}
+
+.skill-icon {
+    font-size:2.5rem;
+    margin: 0 10px;
+}
+
+.skill-title {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.skill-name {
+    font-weight: bold;
+    color: #545e6f;
+    margin-bottom: 0.2rem;
+}
+
+.skill-usage {
+    font-size: 0.9rem;
+    color: #545e6f;
+}
+
+.python-style {
+    color: #2186c4;
+}
+
+.js-style {
+    color: #f7df1e;
+}
+
+.git-style {
+    color: #000000;
+}
+
+.css-style {
+    color: orange;
+}
+
+.roadmap-container {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.roadmap-title-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roadmap-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #545e6f;
+}
+
+.arrow-container {
+    display: flex;
+}
+
+.slide-prev {
+    font-size: 2rem;
+    cursor: pointer;
+    color: rgb(47, 48, 89);
+}
+
+.slide-next {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #cfd8dc;
+}
+
+.slide-prev-hover:hover {
+    transition: transform 0.5s;
+    transform: translateX(-2px);
+}
+
+.slide-next-hover:hover {
+    transition: transform 0.5s;
+    transform: translateX(2px);
+}
+
+.class-list {
+    display: flex;
+    list-style: none;
+    padding: 1rem 0;
+    margin: 0;
+    overflow: none; /* overflow를 hidden으로 설정하면, transform 시 이미지 짤림 */
+}
+
+.class-card {
+    width: 240px;
+    box-shadow: 10px 10px 10px -5px rgba(25, 42, 70, 0.2);
+    border-radius: 8px;
+    margin: 0 10px;
+    transition: 0.4s;
+    flex-shrink: 0; /* IE */
+}
+
+.class-card:hover {
+    box-shadow: 10px 10px 10px 0px rgba(25, 42, 70, 0.2);
+    transform: translate(0, -5px);
+}
+
+.class-image {
+    max-width: 240px; /* IE */
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+}
+
+.class-container {
+    width: 100%;
+    padding: 0.5rem 1rem 1rem 1rem;
+}
+
+.class-skill {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.class-type {
+    font-size: 0.9rem;
+    color: #949393;
+}
+
+.class-format {
+    font-size: 0.9rem;
+    color: #fff;
+    background-color: #0d47a1;
+    padding: 0.2rem;
+}
+
+.class-desc {
+    width: 100%;
+    margin-top: 1rem;
+    color: #545e6f;
+}
+
+.class-desc:hover {
+    color: #2186c4;
+}
+
+.class-title {
+    font-weight: bold;
+    color: inherit;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.5rem;
+}
+
+.class-detail {
+    font-size: 0.9rem;
+    color: inherit;
+    line-height: 1.5rem;
+}
+
+.roadmap-desc {
+    display: visual;
+}
+
+li a:hover {
+    cursor: pointer;
+}
+
+footer {
+    border-top: 1px solid #e4e4e4;
+    background-color: #f8f9fa;
+    padding: 1rem 0;
+    margin: 1rem 0 0;
+}
+
+.footer-message {
+    font-weight: bold;
+    color: #545e6f;
+    margin: 0.3rem 0.5rem;
+}
+
+.footer-contact {
+    color: #545e6f;
+    margin: 0 0.5rem;
+}
+
+.footer-copyright {
+    color: #545e6f;
+    margin: 1rem 0.5rem;
+}
+
+#backtotop {
+    background-color: rgb(47, 48, 89);
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition-property: background-color, opacity, visibility;
+    transition-duration: 0.3s, 0.5s, 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+}
+
+/* icon */
+#backtotop::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-size: 1.5rem;
+    line-height: 40px;
+    color: #fff;
+}
+
+#backtotop.show {
+    opacity: 1;
+    visibility: visible;
+    background-color: rgb(47, 48, 89);
+}
+
+#backtotop.show:hover {
+    cursor: pointer;
+    background-color: #2186c4;
+}
+
+/* drag 할 수 있는 아이템임을 나타내는 표시를 포인터로 변경함 */
+ul li img:hover {
+    cursor: grab; /* IE에서는 미지원 */
+}
+
+/* Dragging 중인 상태에서 잡는 표시를 포인터로 변경함 */
+ul li img:active {
+    cursor: grabbing; /* IE에서는 미지원 */
+}
+
+/* ------------------------------------------------------------*/
+/* Quiz Page */
+.inner-quiz {
+    text-align: center;
+}
+
+.kanji-title {
+    margin: 60px 0 1rem;
+    border-top: 1px solid #e4e4e4;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #545e6f;
+}
+
+.n-level {
+    color: #ff553e;
+}
+
+.quiz {
+    margin: 2rem 0;
+}
+
+.quiz-li {
+    margin-bottom: 0.5rem;
+}
+
+.result {
+    height: 2.2rem;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.furigana-word {
+    width: 20%;
+    height: 2.2rem;
+    font-size: 1.2rem;
+    display: inline-block;
+    background-color: #3AB795;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 2.2rem;
+}
+
+.kanji-word {
+    width: 16%;
+    height: 2.2rem;
+    font-size: 1.2rem;
+    display: inline-block;
+    background-color: #3AB795;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 2.2rem;
+}
+
+.quiz-answer {
+    border: 1px solid rgba(29,192,120,.24);
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+    transition: all .2s ease;
+    border-radius: 10px;
+    width: 25%;
+    height: 2.2rem;
+    font-size: 1.2rem;
+    background-color: #ECFFF8;
+    outline: none;
+    padding-left: 10px;
+    margin: 0.3rem 0 0.3rem 0.5rem;
+}
+.quiz-answer:focus {
+    outline: unset;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    border: 1px solid #dedede;
+    background-color: #fff;
+}
+
+.btn-hint {
+    border-radius: 10px;
+    width: 60px;
+    height: 2.2rem;
+    border: 0;
+    margin-left: 0.5rem;
+    background-color: #0d47a1;
+    color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+}
+
+.btn-hint:hover {
+    transition: transform 0.5s;
+    transform: translateY(-2px);
+    color: #fff;
+    background-color: #F26157;;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.btn-new-word {
+    border-radius: 20px;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    margin-left: 0.5rem;
+    background-color: #143642;
+    color: #ffffff;
+    margin-right: 0.2rem;
+    margin-left: 20px;
+    text-align: center;
+    line-height: 30px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+}
+
+.btn-new-word:hover {
+    transition: transform 0.5s;
+    transform: translateY(-2px);
+    color: #ffffff;
+    background-color: #0d47a1;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.refresh {
+    font-size: 16px;
+}
+
+.btn-kanji-submit,
+.btn-quiz-submit {
+    border-radius: 10px;
+    width: 40%;
+    height: 40px;
+    line-height: 40px;
+    border: 0;
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+    background-color: #F26157;
+    color: #ffffff;
+    vertical-align: center;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+}
+
+.btn-kanji-submit:hover,
+.btn-quiz-submit:hover {
+    transition: transform 0.5s;
+    transform: translateY(-2px);
+    color: #ffffff;
+    background-color: #0d47a1;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.submit-icon {
+    font-size: 1rem;
+}
+
+.submit-word {
+    height: 30px;
+    line-height: 30px;
+}
+
+.word-length{
+    margin-bottom: 0.5rem;
+}
+
+.thumb-up {
+    color: #F26157;
+}
+
+.thumb-down {
+    color: grey;
+}
+
+@media only screen and (min-width: 1200px) {
+    .inner {
+        max-width: 1200px;
+    }
+}
+
+@media only screen and (max-width: 980px) {
+    .skill-container {
+        display: none;
+    }
+
+    .roadmap-desc {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .class-container {
+        padding: 0.5rem;
+    }
+    .class-desc {
+        margin-top: 0.5rem;
+    }
+    .title-container {
+        padding-top: 30%;
+        padding-left: 20%;
+    }
+    .kanji-word {
+        width: 35%;
+    }
+    .kanji-answer {
+        width: 35%;
+    }
+    .btn-hint {
+        width:15%;
+    }
+    .btn-kanji-submit {
+        width: 60%;
+    }
+    .quiz {
+        padding: 0;
+    }
+    .inner {
+        padding: 0 1rem;
+    }
+    .quiz-furigana {
+        width: 33%;
+    }
+    .quiz-kanji {
+        width: 29%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .title-container {
+        padding-top: 42%;
+        padding-right: 2%;
+    }
+    .title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #fff;
+        margin-bottom: 0.6rem;
+        text-align: right;
+    }
+    .message {
+        font-size: 1rem;
+        font-weight: normal;
+        color: #fff;
+        line-height: 1.7rem;
+        text-align: right;
+    }
+    .class-container {
+        padding: 0.5rem;
+    }
+    .class-desc {
+        margin-top: 0.5rem;
+    }
+    .kanji-word {
+        width: 34%;
+    }
+    .kanji-answer {
+        width: 34%;
+    }
+    .btn-hint {
+        width:14%;
+    }
+    .btn-quiz-submit {
+        width: 60%;
+    }
+    .quiz {
+        padding: 0;
+    }
+    .kanji-title {
+        font-size: 1.3rem;
+    }
+    .result {
+        margin-right: 2px;
+    }
+    .inner {
+        padding: 0 0.5rem;
+    }
+    .quiz-furigana {
+        width: 46%;
+        font-size: 0.9rem;
+    }
+    .quiz-kanji {
+        width: 34%;
+        font-size: 0.9rem;
+    }
+    .quiz-answer {
+        width: 81%;
+        padding: 0 0 0 2px;
+        margin: 5px 0;
+        font-size: 0.9rem;
+    }
+}
