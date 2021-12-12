@@ -17,7 +17,7 @@ class DataCrawling:
 
         for divs in outer_div:
             a_list = divs.select('div.coll_div a')
-            
+
             for i, a in enumerate(a_list):
                 detail_url = DOMAIN + a.attrs['href']
                 print(detail_url)
@@ -25,23 +25,48 @@ class DataCrawling:
                 inner_soup = BeautifulSoup(detail_res.content, 'html.parser')
                 detail_data = inner_soup.select('div.jr_inner div.jukugo')
                 
-                furigana_list = list()
-                kanji_list = list()
-                
+                level = int(re.search('-N(.+?)-', detail_url).group(1))
+
                 for detail in detail_data:
-                    tags = str(detail).split('<')          
+                    meaning_list = list()
                     
+                    # meaning
+                    detail_meanings = detail.parent.parent.select('div.jukugo_reading div.vm')
+                    for m in detail_meanings:
+                        pattern = re.compile(r'. </span>(.*?)</div>')
+                        meaning = pattern.findall(str(m))
+                        
+                        if len(meaning) == 0:
+                            pattern = re.compile(r'</span></div>(.*?)</div>')
+                            meaning = pattern.findall(str(m))
+                        
+                        meaning = meaning[0].replace(u'\xa0', u'')
+                        
+                        meaning = re.sub('<span>(.*?)</span>', '', meaning)
+                        words = meaning.split(';')
+                        
+                        for word in words:
+                            print(word.strip())
+                            meaning_list.append(word.strip())
+                
+                    # reading
+                    tags = str(detail).split('<')          
+
                     furigana_full = list()
                     kanji_full = list()
-                    
+
                     tags_str = str(detail)
-                    
+
                     if tags_str.find('furigana') == -1 and tags_str.find('f_kanji') == -1:
                         pattern = re.compile(r'>(.*?)</a>')
                         pure_hiragana = pattern.findall(tags_str)[0]
                         
-                        furigana_list.append(pure_hiragana)
-                        kanji_list.append(None)
+                        word_list.append({
+                            'level': level,
+                            'furigana': pure_hiragana,
+                            'kanji': None,
+                            'meanings': meaning_list
+                        })
                         continue
 
                     for tag in tags:                
@@ -55,19 +80,16 @@ class DataCrawling:
                             okurigana = re.sub('.*>', '', tag)
                             furigana_full.append(okurigana)
                             kanji_full.append(okurigana)
-                    
+
                     furigana_word = ('').join(furigana_full)
                     kanji_word = ('').join(kanji_full)
-                    
-                    level = int(re.search('-N(.+?)-', detail_url).group(1))
-                    
+
                     word_list.append({
                         'level': level,
                         'furigana': furigana_word,
-                        'kanji': kanji_word
+                        'kanji': kanji_word,
+                        'meanings': meaning_list
                     })
                 
         db = conn_mongodb()
         db.insert_many(word_list)
-        
-

@@ -3,39 +3,35 @@
 {% block content %}
 <section class="main-quiz">
     <div class="inner inner-quiz" id="app">
-        <div class="kanji-title"><span class="n-level">JLPT N{{ level }}</span> Kanji Readings</div>
-        <!-- Select numbers -->
-        <div class="select-num">
-            How many words do you want?&nbsp;
-            <select name="kanji-numbers" id="kanji-numbers" v-model="selected" class="kanji-select">
-                <option disabled>Select a number</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-            </select>
+        <div class="kanji-title">
+            <span class="n-level">JLPT N{{ level }}</span> Kanji Readings
             <button type="button" v-on:click="reloadPage" class="btn-new-word"/>
-                <span class="material-icons-outlined">refresh</span>
+                <span class="material-icons-outlined refresh">refresh</span>
             </button>
         </div>
-
-
-        <ul class="quiz">
-            {% for kanji in kanji_list %}
-            <li class="quiz-li">
-                <div class="kanji-word">{{ kanji[3] }}</div>
-                <input class="kanji-answer" type="search" name={{ loop.index }}>
-                <input type="button" v-on:click="showHint($event)" class="btn-hint" value="hint" data-id="{{ kanji[0] }}"/>
-            </li>    
-            {% endfor %}
-        </ul>
-        <div>
-            <button type="submit" class="btn-kanji-submit">
-                <span class="material-icons-outlined submit-icon">
-                    grading
-                </span>
-                <span class="submit-word">Check the result<span>
-            </button>
-        </div>
+        
+        <form v-on:submit.prevent="submitKanji">
+            <ul class="quiz">
+                {% for kanji in kanji_list %}
+                <li class="quiz-li">
+                    <span class="result" id="result{{ loop.index0 }}"></span>
+                    <input type="hidden" class="obj-id" value="{{ kanji[0] }}">
+                    <div class="kanji-word">{{ kanji[3] }}</div>
+                    <input autocomplete="off" class="kanji-answer" type="search">
+                    <input type="button" v-on:click="showHint($event)" class="btn-hint" value="hint" data-id="{{ kanji[0] }}"/>
+                </li>
+                <div class="word-length"></div>   
+                {% endfor %}
+            </ul>
+            <div>
+                <button type="submit" class="btn-kanji-submit">
+                    <span class="material-icons-outlined submit-icon">
+                        grading
+                    </span>
+                    <span class="submit-word">Check the result<span>
+                </button>
+            </div>
+        </form>
     </div>
 </section>
 

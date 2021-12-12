@@ -398,11 +398,10 @@ ul li img:active {
 .kanji-title {
     margin: 60px 0 1rem;
     border-top: 1px solid #e4e4e4;
-    padding-top: 0.5rem;
-    font-size: 1.3rem;
+    padding-top: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #545e6f;
-    /*margin: 0.3rem 0 1rem;*/
 }
 
 .n-level {
@@ -415,6 +414,12 @@ ul li img:active {
 
 .quiz-li {
     margin-bottom: 0.5rem;
+}
+
+.result {
+    height: 2.2rem;
+    margin-right: 10px;
+    vertical-align: middle;
 }
 
 .kanji-word {
@@ -430,7 +435,9 @@ ul li img:active {
 }
 
 .kanji-answer {
-    border: 0;
+    border: 1px solid rgba(29,192,120,.24);
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+    transition: all .2s ease;
     border-radius: 10px;
     width: 25%;
     height: 2.2rem;
@@ -439,6 +446,12 @@ ul li img:active {
     outline: none;
     padding-left: 10px;
     margin: 0.3rem 0 0.3rem 0.5rem;
+}
+.kanji-answer:focus {
+    outline: unset;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    border: 1px solid #dedede;
+    background-color: #fff;
 }
 
 .btn-hint {
@@ -449,6 +462,7 @@ ul li img:active {
     margin-left: 0.5rem;
     background-color: #0d47a1;
     color: #ffffff;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
 }
 
 .btn-hint:hover {
@@ -457,12 +471,13 @@ ul li img:active {
     color: #fff;
     background-color: #F26157;;
     cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
 }
 
 .btn-new-word {
     border-radius: 20px;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border: 0;
     margin-left: 0.5rem;
     background-color: #143642;
@@ -470,7 +485,8 @@ ul li img:active {
     margin-right: 0.2rem;
     margin-left: 20px;
     text-align: center;
-    line-height: 50px;
+    line-height: 30px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
 }
 
 .btn-new-word:hover {
@@ -479,6 +495,11 @@ ul li img:active {
     color: #ffffff;
     background-color: #0d47a1;
     cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+}
+
+.refresh {
+    font-size: 16px;
 }
 
 .btn-kanji-submit {
@@ -492,6 +513,7 @@ ul li img:active {
     background-color: #F26157;
     color: #ffffff;
     vertical-align: center;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
 }
 
 .btn-kanji-submit:hover {
@@ -500,6 +522,7 @@ ul li img:active {
     color: #ffffff;
     background-color: #0d47a1;
     cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
 }
 
 .submit-icon {
@@ -509,6 +532,18 @@ ul li img:active {
 .submit-word {
     height: 30px;
     line-height: 30px;
+}
+
+.word-length{
+    margin-bottom: 0.5rem;
+}
+
+.thumb-up {
+    color: #F26157;
+}
+
+.thumb-down {
+    color: grey;
 }
 
 @media only screen and (min-width: 1200px) {
@@ -538,6 +573,24 @@ ul li img:active {
         padding-top: 30%;
         padding-left: 20%;
     }
+    .kanji-word {
+        width: 35%;
+    }
+    .kanji-answer {
+        width: 35%;
+    }
+    .btn-hint {
+        width:15%;
+    }
+    .btn-kanji-submit {
+        width: 60%;
+    }
+    .quiz {
+        padding: 0;
+    }
+    .inner {
+        padding: 0 1rem;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -564,5 +617,29 @@ ul li img:active {
     }
     .class-desc {
         margin-top: 0.5rem;
+    }
+    .kanji-word {
+        width: 34%;
+    }
+    .kanji-answer {
+        width: 34%;
+    }
+    .btn-hint {
+        width:14%;
+    }
+    .btn-kanji-submit {
+        width: 60%;
+    }
+    .quiz {
+        padding: 0;
+    }
+    .kanji-title {
+        font-size: 1.3rem;
+    }
+    .result {
+        margin-right: 2px;
+    }
+    .inner {
+        padding: 0 0.5rem;
     }
 }

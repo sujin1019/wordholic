@@ -16,6 +16,7 @@ app = Flask(__name__, static_url_path='/static')
 app.register_blueprint(quiz.wordquiz, url_prefix='/quiz/words')
 app.register_blueprint(kanji.kanjiquiz, url_prefix='/quiz/kanji')
 app.register_blueprint(kanji.kanjihint, url_prefix='/quiz/kanji/hint')
+app.register_blueprint(kanji.kanjianswer, url_prefix='/quiz/kanji/answer')
 
 CORS(app, supports_credentials=True)
 app.secret_key = os.urandom(24)  # varies whenever the server is started
@@ -37,7 +38,9 @@ if not app.debug:
 
 @app.route('/')
 def show_main():
-    return render_template('top.html')
+    total_words = ['674', '582', '1743', '1816', '3361']
+    kanji_words = ['501', '472', '1529', '1499', '3091']
+    return render_template('top.html', total_words=total_words, kanji_words=kanji_words)
 
 
 # TODO - Administrator login page
