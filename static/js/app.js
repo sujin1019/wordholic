@@ -214,7 +214,7 @@ if (document.querySelector('#app') !== null) {
             },
             showHint: (event) => {
                 let target = event.target.getAttribute('data-id')
-                axios("http://localhost:8081/quiz/kanji/hint", {
+                axios("//wordholic.site/quiz/kanji/hint", {
                     method: "get",
                     params: {
                         row_id: target
@@ -245,7 +245,7 @@ if (document.querySelector('#app') !== null) {
 
                 axios({
                     method: "post",
-                    url: "http://localhost:8081/quiz/kanji/answer/",
+                    url: "//wordholic.site/quiz/kanji/answer/",
                     data: body,
                     headers: { 'content-type': 'application/json' }
                 })
@@ -275,7 +275,7 @@ if (document.querySelector('#app') !== null) {
 
                 axios({
                     method: "post",
-                    url: "http://localhost:8081/quiz/vocab/answer/",
+                    url: "//wordholic.site/quiz/vocab/answer/",
                     data: body,
                     headers: { 'content-type': 'application/json' }
                 })
